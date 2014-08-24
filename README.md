@@ -8,6 +8,6 @@ To use the script, download the [original data set](https://d396qusza40orc.cloud
 After unziping, rename directory to `data`.
 
 After running the script, the cleaned data is saved to [tidy.txt](tidy.txt).
-Explanation of derived features are in [codebokk.md](codebook.md)
+Explanation of derived features are in [codebok.md](codebook.md)
 
 The processing procedure is explaind within comments in the script [run_analysis.R](run_analysis.R).

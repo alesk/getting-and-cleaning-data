@@ -26,7 +26,8 @@ renamed.features <- gsub("BodyBody", "Body", renamed.features)
 activity_labels <- read.table("./data/activity_labels.txt", col.names=c("index", "name"))$name
 
 # Common function to read and merge subjects, activites and sensor measurements data
-# from training or test datasets.
+# from training or test datasets. Subject and activity type data are saved in separate
+# files.
 
 read.my.data <- function(subjects.file, activities.file, data.file) {
     subjects <- read.table(subjects.file, nrows=NROWS, col.names="subject")
@@ -43,24 +44,27 @@ read.my.data <- function(subjects.file, activities.file, data.file) {
     # ... and rename the columns to more consisten naming scheme
     names(data) <- renamed.features
 
-    # make sure to bind smaller data frames to larger one for
-    # performance reasons
+    # Join all three data sources. 
+    # The subject id feature is binded to "subject" column and
+    # activity type is binded to "activity" column.
+    # Make sure to bind smaller data frames to larger one for
+    # performance reasons.
     cbind(data, subject=subjects, activity=activities)
 }
 
 
-# Read and merge training and test data
+# Read and merge training and test data sets
 
 training.data <- read.my.data(
-    "./data/train/subject_train.txt", 
-    "./data/train/y_train.txt", 
-    "./data/train/X_train.txt"
+    "./data/train/subject_train.txt", # subject ids
+    "./data/train/y_train.txt",       # activity type
+    "./data/train/X_train.txt"        # measurements data
     )
 
 test.data <- read.my.data(
-    "./data/test/subject_test.txt",
-    "./data/test/y_test.txt",
-    "./data/test/X_test.txt"
+    "./data/test/subject_test.txt",  # subject ids
+    "./data/test/y_test.txt",        # activity data
+    "./data/test/X_test.txt"         # measurements data
     )
 
 merged.data = rbind(training.data, test.data)
@@ -72,7 +76,6 @@ write.table(tidy_ordered, "tidy.txt", row.name=FALSE)
 
 
 # Prepare template file for writing code book.
-
 codebook <- data.frame()
 for (name in names(tidy_ordered)) {
     class <- class(tidy_ordered[1,name])
