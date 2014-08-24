@@ -1,4 +1,4 @@
-# Human Activity Recognitin Using Smartphones
+# Human Activity Recognition Using Smartphones
 
 This repository contains R code, tidied dataset and code book for 
 Peer Assesment project of the course Getting And Cleaning data.
