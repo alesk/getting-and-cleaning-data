@@ -34,8 +34,8 @@ Each value is either mean value of sampled signal denoted by `Mean` or
 standard deviation denoted by `Std`.
 
 
-| name                 | type    | min    | Q1     | median | Q3     | mean   | std   | max
-| :---                 | :---    | --:    | -:     | -----: | -:     | ---:   | --:   | ---:
+| name                 | type    | min    | Q1     | median | Q3     | mean   | std   | max |
+|:---------------------|:--------|-------:|-------:|------: |-------:|-------:|------:|----:|
 | tBodyAccMeanX        | numeric | -0.985 | -0.956 | -0.758 | -0.414 | -0.665 | 0.31  | 0.216
 | tBodyAccMeanY        | numeric | -0.989 | -0.951 | -0.731 | -0.483 | -0.703 | 0.264 | -0.029
 | tBodyAccMeanZ        | numeric | -0.981 | -0.946 | -0.655 | -0.216 | -0.565 | 0.398 | 0.418
